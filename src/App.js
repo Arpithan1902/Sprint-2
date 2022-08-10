@@ -1,31 +1,35 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import FetchAllUsers from './components/FetchAllUsers';
-import FetchUser from './components/FetchUser';
-
 import Dashboard from './components/Dashboard';
-import UpdateUser from './components/UpdateUser';
-import AddUser from './components/AddUser';
-
-import DeleteUser from './components/DeleteUser';
-import Home from './components/Home';
-import ForgetPassword from './components/ForgetPassword';
-import Login from './components/Login';
-
-import FetchBookingByUserId from './components/FetchBookingByUserId';
 import NavBarDashboard from './navbars/NavBarDashboard';
-import Logout from './components/Logout';
-import FetchAllCars from './components/FetchAllCars';
-import FetchAllBookings from './components/FetchAllBookings';
+import FetchAllUsers from './components/User/FetchAllUsers';
+import FetchUser from './components/User/FetchUser';
+import UpdateUser from './components/User/UpdateUser';
+import AddUser from './components/User/AddUser';
+import Login from './components/Authentication/Login';
+import DeleteUser from './components/User/DeleteUser';
+import ForgetPassword from './components/Authentication/ForgetPassword';
+import FetchBookingByUserId from './components/User/FetchBookingByUserId';
+import FetchAllCars from './components/Car/FetchAllCars';
+import FetchAllBookings from './components/Booking/FetchAllBookings';
+import Home from './components/Home';
+import Logout from './components/Authentication/Logout';
+import FetchCar from './components/Car/FetchCar';
+// import AddBooking from './components/Booking/CreateBooking';
 
-
-
+import CreateBooking from './components/Booking/CreateBooking';
+import FetchBooking from './components/Booking/FetchBooking';
+import BookingDetails from './components/Booking/BookingDetails';
+import DeleteBookingById from './components/Booking/DeleteBookingById';
+import DeleteBooking from './components/Booking/DeleteBooking';
+import BookingDashboard from './components/Booking/BookingDashboard';
+import Guest from './components/User/Guest';
 
 
 function App() {
   return (
     <div className="App">
-       {/* <header className="App-header"> */}
+       
       
         
         
@@ -33,8 +37,7 @@ function App() {
           <Routes>
           <Route path="/" element={<Home/>}/>
             <Route path="/dashboard" element={<Dashboard/>}/>
-            <Route path="/navbar" element={<NavBarDashboard/>}/> 
-            
+            <Route path="/navbar" element={<NavBarDashboard/>}/>       
             
             <Route path='/user/all' element={<FetchAllUsers/>}/>
             <Route path='/user/get/:id' element={<FetchUser/>}/>
@@ -47,12 +50,21 @@ function App() {
             <Route path='/logout' element={<Logout/>}/>
             <Route path='/car/all' element={<FetchAllCars/>}/>
             <Route path='/booking/all' element={<FetchAllBookings/>}/>
-            
+            <Route path='/car/get/:id' element={<FetchCar/>}/>
+            <Route path='/booking/add' element={<CreateBooking/>}/>
+           
+            <Route path='/booking/get/:id' element={<FetchBooking/>}/>
+            <Route path='/booking/details' element={<BookingDetails/>}/>
+            <Route path='/booking/delete/byId' element={<DeleteBookingById/>}/>
+            <Route path='/booking/delete' element={<DeleteBooking/>}/>
+            <Route path='/booking/dashboard' element={<BookingDashboard/>}/>
+            <Route path='/guest' element={<Guest/>}/>
+
            
           </Routes>
 
         </Router>
-        {/* </header> */}
+        
      
     </div>
   );
